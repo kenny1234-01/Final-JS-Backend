@@ -33,6 +33,20 @@ app.get('/books', (req, res) => {
     });
 });
 
+app.get('/books/:id', (req, res) => {
+    db.all('SELECT * FROM books WHERE id = ?', req.params.id, (err, row) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            if (!row) {
+                res.status(404).send('Book not found');
+            } else {
+                res.json(row)
+            }
+        }
+    });
+});
+
 // เพิ่มข้อมูล books
 app.post('/books', (req, res) => {
     const book = req.body;
