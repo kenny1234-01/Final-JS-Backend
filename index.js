@@ -33,6 +33,7 @@ app.get('/books', (req, res) => {
     });
 });
 
+// ดูข้อมูลหนังสือเล่มเดียวตาม ID
 app.get('/books/:id', (req, res) => {
     db.all('SELECT * FROM books WHERE id = ?', req.params.id, (err, row) => {
         if (err) {
@@ -89,5 +90,4 @@ app.delete('/books/:id', (req, res) => {
 // รันเซิฟเวอร์
 app.listen(PORT, () => {
     console.log(`Web Appication Server Running http://localhost:${PORT}`);
-    
 });
