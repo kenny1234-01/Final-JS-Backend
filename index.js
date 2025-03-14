@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 //ประกาศตัวแปรเพื่อจะสร้าง Database
 const db = new sqlite.Database('./Database/Book.sqlite');
 
-//สร้าง Database พร้อมกำหนดตัวรับข้อมูลพร้อมชนิดข้อมูล
+//สร้าง Database พร้อมสร้าง Table books กำหนดตัวรับข้อมูลพร้อมชนิดข้อมูล
 db.run(`CREATE TABLE IF NOT EXISTS books (
     id INTEGER PRIMARY KEY,
     title TEXT,
